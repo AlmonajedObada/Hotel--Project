@@ -1,0 +1,667 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JTabbedPane;
+import javax.swing.JButton;
+import java.awt.SystemColor;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.UIManager;
+import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Restaurants {
+
+	private JFrame frame;
+	private JTextField textH;
+	private JTextField textCB;
+	private JTextField textDK;
+	private JTextField textField_3;
+	private JTextField textQuantity;
+	private JTextField textConvert;
+	private JTextField textField;
+	
+	double firstnum;
+	double secondnum;
+	double result;
+	String operations;
+	
+	
+	double[]i=new double[5];
+	
+	double US_Dollar=1.95;
+	double Brazil=5.86;
+	double Canada=2.03;
+	protected JLabel label_3;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	
+	
+	
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Restaurants window = new Restaurants();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Restaurants() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1368, 720);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel.setBounds(10, 100, 615, 285);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblHamburger = new JLabel("Hamburger");
+		lblHamburger.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblHamburger.setBounds(10, 10, 142, 37);
+		panel.add(lblHamburger);
+		
+		JLabel lblChickenBurger = new JLabel("Chicken Burger");
+		lblChickenBurger.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblChickenBurger.setBounds(10, 60, 181, 37);
+		panel.add(lblChickenBurger);
+		
+		JLabel lblDonerKebab = new JLabel("D\u00F6ner Kebab");
+		lblDonerKebab.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblDonerKebab.setBounds(10, 110, 154, 29);
+		panel.add(lblDonerKebab);
+		
+		textH = new JTextField();
+		textH.setHorizontalAlignment(SwingConstants.RIGHT);
+		textH.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		textH.setBounds(354, 24, 230, 23);
+		panel.add(textH);
+		textH.setColumns(10);
+		
+		textCB = new JTextField();
+		textCB.setHorizontalAlignment(SwingConstants.RIGHT);
+		textCB.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		textCB.setColumns(10);
+		textCB.setBounds(354, 74, 230, 23);
+		panel.add(textCB);
+		
+		textDK = new JTextField();
+		textDK.setHorizontalAlignment(SwingConstants.RIGHT);
+		textDK.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		textDK.setColumns(10);
+		textDK.setBounds(354, 120, 230, 23);
+		panel.add(textDK);
+		
+		JLabel lblDrink = new JLabel("Drink");
+		lblDrink.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblDrink.setBounds(10, 158, 142, 37);
+		panel.add(lblDrink);
+		
+		JLabel lblQuantity = new JLabel("Quantity");
+		lblQuantity.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblQuantity.setBounds(354, 158, 142, 37);
+		panel.add(lblQuantity);
+		
+		textQuantity = new JTextField();
+		textQuantity.setHorizontalAlignment(SwingConstants.RIGHT);
+		textQuantity.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		textQuantity.setColumns(10);
+		textQuantity.setBounds(354, 206, 230, 23);
+		panel.add(textQuantity);
+		
+		JCheckBox chckbxTax = new JCheckBox("Tax");
+		chckbxTax.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		chckbxTax.setBounds(10, 244, 97, 23);
+		panel.add(chckbxTax);
+		
+		JComboBox SelectDrink = new JComboBox();
+		SelectDrink.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		SelectDrink.setModel(new DefaultComboBoxModel(new String[] {"Select a drink", "Coca-cola", "Pepsi", "Fanta", "Sprite", "Apple Juice", "Orange Juice", "Pineapple Juice", "Tea", "Ice Tea", "Ice Coffe"}));
+		SelectDrink.setBounds(10, 206, 154, 23);
+		panel.add(SelectDrink);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 155, 574, 11);
+		panel.add(separator);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel_1.setBounds(635, 98, 339, 285);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JComboBox ChooseOne = new JComboBox();
+		ChooseOne.setModel(new DefaultComboBoxModel(new String[] {"Choose One", "USA", "Canada", "Brazil"}));
+		ChooseOne.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		ChooseOne.setBounds(77, 29, 154, 23);
+		panel_1.add(ChooseOne);
+		
+		textConvert = new JTextField();
+		textConvert.setHorizontalAlignment(SwingConstants.RIGHT);
+		textConvert.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		textConvert.setColumns(10);
+		textConvert.setBounds(47, 84, 230, 23);
+		panel_1.add(textConvert);
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setFont(new Font("Tahoma", Font.BOLD, 24));
+		label_3.setBorder(new LineBorder(new Color(0, 0,0),2));
+		label_3.setBounds(77, 135, 154, 43);
+		panel_1.add(label_3);
+		
+		JButton btnConvert = new JButton("Convert");
+		btnConvert.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double KM=Double.parseDouble(textConvert.getText());
+				if(ChooseOne.getSelectedItem().equals("USA"))
+				{
+					String cConvert1=String.format("$ %.2f", KM*US_Dollar);
+					label_3.setText(cConvert1);
+				}
+				if(ChooseOne.getSelectedItem().equals("Canada"))
+				{
+					String cConvert1=String.format("C$ %.2f", KM*Canada);
+					label_3.setText(cConvert1);
+				}
+				if(ChooseOne.getSelectedItem().equals("Brazil"))
+				{
+					String cConvert1=String.format("Bra %.2f", KM*Brazil);
+					label_3.setText(cConvert1);
+				}
+				
+				
+			}
+		});
+		btnConvert.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnConvert.setBounds(47, 234, 95, 26);
+		panel_1.add(btnConvert);
+		
+		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				label_3.setText(null);
+				textConvert.setText("");
+				ChooseOne.setSelectedItem("Choose One");
+				
+			}
+		});
+		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnClose.setBounds(188, 234, 95, 26);
+		panel_1.add(btnClose);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel_2.setBounds(635, 394, 339, 171);
+		frame.getContentPane().add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblTax = new JLabel("Tax");
+		lblTax.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblTax.setBounds(10, 11, 181, 32);
+		panel_2.add(lblTax);
+		
+		JLabel lblSubTotal = new JLabel("Sub Total");
+		lblSubTotal.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblSubTotal.setBounds(10, 54, 181, 32);
+		panel_2.add(lblSubTotal);
+		
+		JLabel lblTotal = new JLabel("Total");
+		lblTotal.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblTotal.setBounds(10, 97, 181, 32);
+		panel_2.add(lblTotal);
+		
+		JLabel lblTax_2 = new JLabel("");
+		lblTax_2.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblTax_2.setBorder(new LineBorder(new Color(0, 0,0),2));
+		lblTax_2.setBounds(201, 11, 128, 32);
+		panel_2.add(lblTax_2);
+		
+		JLabel lblSubTotal_2 = new JLabel("");
+		lblSubTotal_2.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblSubTotal_2.setBorder(new LineBorder(new Color(0, 0,0),2));
+		lblSubTotal_2.setBounds(201, 54, 128, 32);
+		panel_2.add(lblSubTotal_2);
+		
+		JLabel lblTotal_2 = new JLabel("");
+		lblTotal_2.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblTotal_2.setBorder(new LineBorder(new Color(0, 0,0),2));
+		lblTotal_2.setBounds(201, 97, 128, 32);
+		panel_2.add(lblTotal_2);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel_3.setBounds(10, 394, 615, 171);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblCostOfMeal = new JLabel("Cost of Meal");
+		lblCostOfMeal.setBounds(10, 11, 181, 32);
+		panel_3.add(lblCostOfMeal);
+		lblCostOfMeal.setFont(new Font("Tahoma", Font.BOLD, 24));
+		
+		JLabel lblCostOfDrink = new JLabel("Cost of Drink");
+		lblCostOfDrink.setBounds(10, 54, 168, 37);
+		panel_3.add(lblCostOfDrink);
+		lblCostOfDrink.setFont(new Font("Tahoma", Font.BOLD, 24));
+		
+		JLabel lblCostMeal = new JLabel("");
+		lblCostMeal.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCostMeal.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblCostMeal.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblCostMeal.setBounds(363, 11, 209, 37);
+		panel_3.add(lblCostMeal);
+		
+		JLabel lblCostDrink = new JLabel("");
+		lblCostDrink.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCostDrink.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblCostDrink.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblCostDrink.setBounds(363, 54, 209, 37);
+		panel_3.add(lblCostDrink);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel_4.setBounds(984, 98, 358, 467);
+		frame.getContentPane().add(panel_4);
+		
+
+		JPanel panel_5 = new JPanel();
+		panel_5.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel_5.setBounds(10, 568, 1332, 83);
+		frame.getContentPane().add(panel_4);
+		panel_4.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(10, 11, 338, 445);
+		panel_4.add(tabbedPane);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBackground(new Color(255, 255, 255));
+		tabbedPane.addTab("Receipt", null, panel_7, null);
+		panel_7.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textField.setBounds(10, 11, 313, 42);
+		panel_7.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(10, 64, 313, 42);
+		panel_7.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(10, 117, 313, 42);
+		panel_7.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(10, 170, 313, 42);
+		panel_7.add(textField_4);
+		
+		textField_5 = new JTextField();
+		textField_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textField_5.setBackground(new Color(255, 255, 255));
+		textField_5.setColumns(10);
+		textField_5.setBounds(10, 223, 313, 42);
+		panel_7.add(textField_5);
+		
+		JPanel panel_8 = new JPanel();
+		tabbedPane.addTab("Calculator", null, panel_8, null);
+		panel_8.setLayout(null);
+		
+		textField_3 = new JTextField();
+		textField_3.setHorizontalAlignment(SwingConstants.RIGHT);
+		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_3.setColumns(10);
+		textField_3.setBounds(33, 11, 260, 53);
+		panel_8.add(textField_3);
+		
+		JButton button = new JButton("+");
+		button.setForeground(Color.RED);
+		button.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button.setBounds(228, 75, 65, 65);
+		panel_8.add(button);
+		
+		JButton button_1 = new JButton("%");
+		button_1.setForeground(new Color(0, 128, 0));
+		button_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_1.setBounds(163, 75, 65, 65);
+		panel_8.add(button_1);
+		
+		JButton button_2 = new JButton("C");
+		button_2.setForeground(new Color(0, 100, 0));
+		button_2.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_2.setBounds(98, 75, 65, 65);
+		panel_8.add(button_2);
+		
+		JButton button_3 = new JButton("\uF0E7");
+		button_3.setForeground(new Color(0, 128, 0));
+		button_3.setFont(new Font("Wingdings", Font.BOLD, 20));
+		button_3.setBackground(UIManager.getColor("Button.background"));
+		button_3.setBounds(33, 75, 65, 65);
+		panel_8.add(button_3);
+		
+		JButton button_4 = new JButton("-");
+		button_4.setForeground(Color.RED);
+		button_4.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_4.setBounds(228, 141, 65, 65);
+		panel_8.add(button_4);
+		
+		JButton button_5 = new JButton("9");
+		button_5.setForeground(new Color(95, 158, 160));
+		button_5.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_5.setBounds(163, 141, 65, 65);
+		panel_8.add(button_5);
+		
+		JButton button_6 = new JButton("8");
+		button_6.setForeground(new Color(95, 158, 160));
+		button_6.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_6.setBounds(98, 141, 65, 65);
+		panel_8.add(button_6);
+		
+		JButton button_7 = new JButton("7");
+		button_7.setForeground(new Color(95, 158, 160));
+		button_7.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_7.setBounds(33, 141, 65, 65);
+		panel_8.add(button_7);
+		
+		JButton button_8 = new JButton("*");
+		button_8.setForeground(Color.RED);
+		button_8.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_8.setBounds(228, 207, 65, 65);
+		panel_8.add(button_8);
+		
+		JButton button_9 = new JButton("6");
+		button_9.setForeground(new Color(95, 158, 160));
+		button_9.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_9.setBounds(163, 207, 65, 65);
+		panel_8.add(button_9);
+		
+		JButton button_10 = new JButton("5");
+		button_10.setForeground(new Color(95, 158, 160));
+		button_10.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_10.setBounds(98, 207, 65, 65);
+		panel_8.add(button_10);
+		
+		JButton button_11 = new JButton("4");
+		button_11.setForeground(new Color(95, 158, 160));
+		button_11.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_11.setBounds(33, 207, 65, 65);
+		panel_8.add(button_11);
+		
+		JButton button_12 = new JButton("/");
+		button_12.setForeground(Color.RED);
+		button_12.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_12.setBounds(228, 273, 65, 65);
+		panel_8.add(button_12);
+		
+		JButton button_13 = new JButton("3");
+		button_13.setForeground(new Color(95, 158, 160));
+		button_13.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_13.setBounds(163, 273, 65, 65);
+		panel_8.add(button_13);
+		
+		JButton button_14 = new JButton("2");
+		button_14.setForeground(new Color(95, 158, 160));
+		button_14.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_14.setBounds(98, 273, 65, 65);
+		panel_8.add(button_14);
+		
+		JButton button_15 = new JButton("1");
+		button_15.setForeground(new Color(95, 158, 160));
+		button_15.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_15.setBounds(33, 273, 65, 65);
+		panel_8.add(button_15);
+		
+		JButton button_16 = new JButton("=");
+		button_16.setForeground(Color.RED);
+		button_16.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_16.setBounds(228, 339, 65, 65);
+		panel_8.add(button_16);
+		
+		JButton button_17 = new JButton("\u00B1");
+		button_17.setForeground(Color.BLUE);
+		button_17.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_17.setBounds(163, 339, 65, 65);
+		panel_8.add(button_17);
+		
+		JButton button_18 = new JButton(".");
+		button_18.setForeground(Color.BLUE);
+		button_18.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_18.setBackground(UIManager.getColor("Button.background"));
+		button_18.setBounds(98, 339, 65, 65);
+		panel_8.add(button_18);
+		
+		JButton button_19 = new JButton("0");
+		button_19.setForeground(new Color(95, 158, 160));
+		button_19.setFont(new Font("Tahoma", Font.BOLD, 18));
+		button_19.setBounds(33, 339, 65, 65);
+		panel_8.add(button_19);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBorder(new LineBorder(new Color(0, 0, 0), 8));
+		panel_6.setBounds(10, 576, 1332, 95);
+		frame.getContentPane().add(panel_6);
+		panel_6.setLayout(null);
+		
+		JButton btnTotal = new JButton("Total");
+		btnTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double Hamburger=Double.parseDouble(textH.getText());
+				double iHamburger=2.39;
+				double Burger;
+				Burger=(Hamburger*iHamburger);
+				String pMeal=String.format("%.2f", Burger);
+				lblCostMeal.setText(pMeal);
+				
+				double ChickenBurgerMeal=Double.parseDouble(textCB.getText());
+				double iChickenBurgerMeal=4.39;
+				double BurgerMeal;
+				BurgerMeal=(ChickenBurgerMeal*iChickenBurgerMeal);
+				String cbMeal=String.format("%.2f", BurgerMeal+Burger);
+				lblCostMeal.setText(cbMeal);
+				
+				double DonerKebab=Double.parseDouble(textDK.getText());
+				double DonerKebabPrice=3.39;
+				double DonerKebabMeal;
+				DonerKebabMeal=(DonerKebab*DonerKebabPrice);
+				String cheese =String.format("%.2f", DonerKebabMeal+ BurgerMeal+ Burger);
+				lblCostMeal.setText(cheese);
+				
+				
+				double Drink=Double.parseDouble(textQuantity.getText());
+				double CocaCola=1.50*Drink;
+				double Pepsi=1.50*Drink;
+				double Fanta= 1.50*Drink;
+				double Sprite= 1.50*Drink;
+				double AppleJuice=3.20*Drink;
+				double OrangeJuice=3.50*Drink;
+				double PineappleJuice=3.50*Drink;
+				double Tea=2.0*Drink;
+				double IceTea=2.50*Drink;
+				double IceCoffe= 3.00*Drink;
+				
+				if(SelectDrink.getSelectedItem().equals("Coca-cola"))
+				{
+					String cCocaCola=String.format("%.2f", CocaCola);
+					lblCostDrink.setText(cCocaCola);
+				}
+				if(SelectDrink.getSelectedItem().equals("Pepsi"))
+				{
+					String cPepsi=String.format("%.2f", Pepsi);
+					lblCostDrink.setText(cPepsi);
+				}
+				if(SelectDrink.getSelectedItem().equals("Fanta"))
+				{
+					String cFanta=String.format("%.2f", Fanta);
+					lblCostDrink.setText(cFanta);
+				}
+				if(SelectDrink.getSelectedItem().equals("Sprite"))
+				{
+					String cSprite=String.format("%.2f", Sprite);
+					lblCostDrink.setText(cSprite);
+				}
+				if(SelectDrink.getSelectedItem().equals("Apple Juice"))
+				{
+					String cAppleJuice=String.format("%.2f", AppleJuice);
+					lblCostDrink.setText(cAppleJuice);
+				}
+				if(SelectDrink.getSelectedItem().equals("Orange Juice"))
+				{
+					String cOrangeJuice=String.format("%.2f", OrangeJuice);
+					lblCostDrink.setText(cOrangeJuice);
+				}
+				if(SelectDrink.getSelectedItem().equals("Pineapple Juice"))
+				{
+					String cPineappleJuice=String.format("%.2f", PineappleJuice);
+					lblCostDrink.setText(cPineappleJuice);
+				}
+				if(SelectDrink.getSelectedItem().equals("Tea"))
+				{
+					String cTea=String.format("%.2f", Tea);
+					lblCostDrink.setText(cTea);
+				}
+				if(SelectDrink.getSelectedItem().equals("Ice Tea"))
+				{
+					String cIceTea=String.format("%.2f", IceTea);
+					lblCostDrink.setText(cIceTea);
+				}
+				if(SelectDrink.getSelectedItem().equals("Ice Coffe"))
+				{
+					String cIceCoffe=String.format("%.2f", IceCoffe);
+					lblCostDrink.setText(cIceCoffe);
+				}
+				if(SelectDrink.getSelectedItem().equals("Select a drink"))
+				{
+					
+					lblCostDrink.setText("0");
+				}
+				
+				
+				double cTotal1=Double.parseDouble(lblCostDrink.getText());
+				double cTotal2=Double.parseDouble(lblCostMeal.getText());
+				double Total=(cTotal1+cTotal2)/100;
+				
+				if(chckbxTax.isSelected())
+				{
+					String iTotal=String.format("%.2f", Total);
+					lblTax_2.setText(iTotal);
+				}
+				
+				double cTotal3=Double.parseDouble(lblTax_2.getText());
+				
+				double subTotal=(cTotal1+cTotal2);
+				String iSubTotal=String.format("%.2f", subTotal);
+				lblSubTotal_2.setText(iSubTotal);
+				
+				double Total_1=(cTotal1+cTotal2+cTotal3);
+				String iTotal=String.format("%.2f", Total_1);
+				lblTotal_2.setText(iTotal);
+				
+				String iTaxTotal=String.format("%.2f", cTotal3);
+				lblTax_2.setText(iTaxTotal);
+			}
+		});
+		btnTotal.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnTotal.setBounds(237, 39, 95, 26);
+		panel_6.add(btnTotal);
+		
+		JButton btnReceipt = new JButton("Receipt");
+		btnReceipt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double Qty1=Double.parseDouble(textH.getText());
+				double Qty2=Double.parseDouble(textCB.getText());
+				double Qty3=Double.parseDouble(textDK.getText());
+				
+				textField.setText("    Restaurant Management Systems ");	
+                textField_1.setText("Hamburger:             " +Qty1);
+		        textField_2.setText("Chicken Burger:      " +Qty2);
+				textField_4.setText("Doner Kebab:          "+Qty3);
+				textField_5.setText("Thanks for using Job Estimator");
+			}
+		});
+		
+		
+		btnReceipt.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReceipt.setBounds(411, 39, 95, 26);
+		panel_6.add(btnReceipt);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				textH.setText(null);
+				textCB.setText(null);
+				textDK.setText(null);
+				SelectDrink.setSelectedItem("Select a drink");
+				ChooseOne.setSelectedItem("Choose One");
+				textQuantity.setText(null);
+				lblCostMeal.setText(null);
+				lblCostDrink.setText(null);
+				textConvert.setText(null);
+				label_3.setText(null);
+				lblTax_2.setText(null);
+				lblSubTotal_2.setText(null);
+				lblTotal_2.setText(null);
+				
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReset.setBounds(643, 39, 95, 26);
+		panel_6.add(btnReset);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnExit.setBounds(802, 39, 95, 26);
+		panel_6.add(btnExit);
+		
+		JLabel lblRestaurantMenagingSystem = new JLabel("Restaurant Menaging System");
+		lblRestaurantMenagingSystem.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRestaurantMenagingSystem.setFont(new Font("Tahoma", Font.PLAIN, 90));
+		lblRestaurantMenagingSystem.setBounds(10, -13, 1332, 109);
+		frame.getContentPane().add(lblRestaurantMenagingSystem);
+	}
+}
